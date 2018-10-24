@@ -68,7 +68,12 @@ var handlers = {};
 
 //Handlers for hello
 handlers.hello = function(data, callback){
-    let msg = 'Welcome '+ data.payload.name;
+    let msg = '';''
+    if(data.payload.name){
+        msg = 'Welcome '+ data.payload.name;
+    }else{
+        msg ='Welcome';
+    }
     console.log('data===>',data.payload.name);
     callback(200, {'msg' : msg});
 }
